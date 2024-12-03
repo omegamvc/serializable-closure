@@ -43,7 +43,7 @@
     "phpstan": "XDEBUG_MODE=off php vendor/bin/phpstan analyze",
     "phpcs": "XDEBUG_MODE=off php vendor/bin/phpcs vendor/omegamvc",
     "phpunit": "php vendor/bin/phpunit",
-    "phpdoc": "XDEBUG_MODE=off vendor/bin/phpDocumentor.phar",
+    "phpdoc": "XDEBUG_MODE=off vendor/bin/phpDocumentor.phar"
   },
   "minimum-stability": "stable"
 }
