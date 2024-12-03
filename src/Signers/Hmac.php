@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Part of Omega CMS - Serializable Closure Package.
+ * Part of Omega - Serializable Closure Package.
  *
  * @see       https://omegamvc.github.io
  *

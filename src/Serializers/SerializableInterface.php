@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Part of Omega CMS - Serializable Closure Package.
+ * Part of Omega - Serializable Closure Package.
  *
  * @see       https://omegamvc.github.io
  *
@@ -27,10 +27,10 @@ namespace Omega\SerializableClosure\Serializers;
 use Closure;
 
 /**
- * Interface for serializable closures in Omega CMS.
+ * Interface for serializable closures in Omega.
  *
  * The `SerializableInterface` defines methods that should be implemented by classes
- * aiming to serialize closures in Omega CMS.
+ * aiming to serialize closures in Omega.
  *
  * @category    Omega
  * @package     SerializableClosure
