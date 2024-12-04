@@ -118,7 +118,7 @@ $unserializedClosure = unserialize($serialized);
 //Invoke the closure
 $result = $unserializedClosure();
 
-echo $result; // Output: Hello from anonymous class!
+echo $result; // Output: Helloo from anonymous class!
 ```
 
 Example 4: Using `UnsignedSerializableClosure` and `anonymous functions`.
