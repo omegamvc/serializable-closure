@@ -2,28 +2,19 @@
 
 /**
  * Part of Omega - Serializable Closure Package.
+ * php version 8.2
  *
- * @see       https://omegamvc.github.io
- *
- * @author     Adriano Giovannini <agisoftt@gmail.com>
- * @copyright  Copyright (c) 2024 Adriano Giovannini. (https://omegamvc.github.io)
- * @license    https://www.gnu.org/licenses/gpl-3.0-standalone.html     GPL V3.0+
+ * @link        https://omegamvc.github.io
+ * @author      Adriano Giovannini <agisoftt@gmail.com>
+ * @copyright   Copyright (c) 2024 Adriano Giovannini.
+ * @license     https://www.gnu.org/licenses/gpl-3.0-standalone.html     GPL V3.0+
+ * @version     1.0.0
  */
 
-/*
- * @declare
- */
 declare(strict_types=1);
-
-/**
- * @namespace
- */
 
 namespace Omega\SerializableClosure\Support;
 
-/*
- * @use
- */
 use SplObjectStorage;
 
 /**
@@ -36,16 +27,13 @@ use SplObjectStorage;
  * @category    Omega
  * @package     SerializableClosure
  * @subpackage  Support
- *
- * @see        https://omegamvc.github.io
- *
+ * @link        https://omegamvc.github.io
  * @author      Adriano Giovannini <agisoftt@gmail.com>
- * @copyright   Copyright (c) 2024 Adriano Giovannini. (https://omegamvc.github.io)
+ * @copyright   Copyright (c) 2024 Adriano Giovannini.
  * @license     https://www.gnu.org/licenses/gpl-3.0-standalone.html     GPL V3.0+
- *
  * @version     1.0.0
  */
-class ClosureScope extends SplObjectStorage
+final class ClosureScope extends SplObjectStorage
 {
     /**
      * The number of serializations in current scope.

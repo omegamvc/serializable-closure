@@ -2,41 +2,33 @@
 
 /**
  * Part of Omega - Serializable Closure Package.
+ * php version 8.2
  *
- * @see       https://omegamvc.github.io
- *
- * @author     Adriano Giovannini <agisoftt@gmail.com>
- * @copyright  Copyright (c) 2024 Adriano Giovanni. (https://omegamvc.github.io)
- * @license    https://www.gnu.org/licenses/gpl-3.0-standalone.html     GPL V3.0+
+ * @link        https://omegamvc.github.io
+ * @author      Adriano Giovannini <agisoftt@gmail.com>
+ * @copyright   Copyright (c) 2024 Adriano Giovannini.
+ * @license     https://www.gnu.org/licenses/gpl-3.0-standalone.html     GPL V3.0+
+ * @version     1.0.0
  */
 
-/*
- * @declare
- */
 declare(strict_types=1);
-
-/**
- * @namespace
- */
 
 namespace Omega\SerializableClosure;
 
-/*
- * @use
- */
+use Closure;
+use ReflectionClass;
+use ReflectionException;
+use ReflectionFunction;
+use Omega\SerializableClosure\Serializers\Native;
+use Omega\SerializableClosure\Serializers\Signed;
+use Omega\SerializableClosure\Serializers\SerializableInterface;
+use Omega\SerializableClosure\Signers\Hmac;
+
 use function call_user_func_array;
 use function func_get_args;
 use function get_class;
 use function is_object;
 use function serialize;
-use Closure;
-use Omega\SerializableClosure\Serializers\Native;
-use Omega\SerializableClosure\Serializers\Signed;
-use Omega\SerializableClosure\Serializers\SerializableInterface;
-use Omega\SerializableClosure\Signers\Hmac;
-use ReflectionClass;
-use ReflectionException;
-use ReflectionFunction;
 
 /**
  * Serializable closure class.
@@ -48,13 +40,10 @@ use ReflectionFunction;
  *
  * @category    Omega
  * @package     SerializableClosure
- *
- * @see        https://omegamvc.github.io
- *
+ * @link        https://omegamvc.github.io
  * @author      Adriano Giovannini <agisoftt@gmail.com>
- * @copyright   Copyright (c) 2024 Adriano Giovanni. (https://omegamvc.github.io)
+ * @copyright   Copyright (c) 2024 Adriano Giovannini.
  * @license     https://www.gnu.org/licenses/gpl-3.0-standalone.html     GPL V3.0+
- *
  * @version     1.0.0
  */
 class SerializableClosure
@@ -70,7 +59,6 @@ class SerializableClosure
      * Creates a new serializable closure instance.
      *
      * @param Closure $closure Holds the current closure object.
-     *
      * @return void
      */
     public function __construct(Closure $closure)
@@ -104,7 +92,6 @@ class SerializableClosure
      * Create a new unsigned serializable closure instance.
      *
      * @param Closure $closure Holds the current closure instance.
-     *
      * @return UnsignedSerializableClosure Return a new instance of UnsignedSerializableClosure.
      */
     public static function unsigned(Closure $closure): UnsignedSerializableClosure
@@ -151,7 +138,6 @@ class SerializableClosure
      * Get the serializable representation of the closure.
      *
      * @return array Return an array of the serialized representation of the closure.
-     *
      * @throws ReflectionException
      */
     public function __serialize(): array
@@ -179,9 +165,7 @@ class SerializableClosure
      * Restore the closure after serialization.
      *
      * @param array $data Holds an array of the closure data for restore.
-     *
      * @return void
-     *
      * @throws ReflectionException
      */
     public function __unserialize(array $data): void
@@ -206,7 +190,6 @@ class SerializableClosure
      * Check if an object is an anonymous class.
      *
      * @param object $object Holds the class object to check.
-     *
      * @return bool Return true if the object is anonymous class, false if not.
      */
     protected function isAnonymousClass(object $object): bool
@@ -218,7 +201,6 @@ class SerializableClosure
      * Serialize a anonymous class.
      *
      * @param object $object Holds the anonymous class to serialize.
-     *
      * @return array Return an array of serialize anonymous class.
      */
     protected function serializeAnonymousClass(object $object): array
@@ -235,7 +217,6 @@ class SerializableClosure
      * Unserialize an anonymous class.
      *
      * @param array $data Holds an array of anonymous class to unserialize.
-     *
      * @return object Return the unserialize object class for class.
      */
     protected function unserializeAnonymousClass(array $data): object
@@ -248,9 +229,7 @@ class SerializableClosure
      * Set the static variables of the closure.
      *
      * @param array $uses Holds an array of use variables associated with the closure.
-     *
      * @return void
-     *
      * @throws ReflectionException
      */
     protected function setClosureUses(array $uses): void

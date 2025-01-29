@@ -2,46 +2,38 @@
 
 /**
  * Part of Omega - Serializable Closure Package.
+ * php version 8.2
  *
- * @see       https://omegamvc.github.io
- *
- * @author     Adriano Giovannini <agisoftt@gmail.com>
- * @copyright  Copyright (c) 2024 Adriano Giovannini. (https://omegamvc.github.io)
- * @license    https://www.gnu.org/licenses/gpl-3.0-standalone.html     GPL V3.0+
+ * @link        https://omegamvc.github.io
+ * @author      Adriano Giovannini <agisoftt@gmail.com>
+ * @copyright   Copyright (c) 2024 Adriano Giovannini.
+ * @license     https://www.gnu.org/licenses/gpl-3.0-standalone.html     GPL V3.0+
+ * @version     1.0.0
  */
 
-/*
- * @declare
- */
 declare(strict_types=1);
-
-/**
- * @namespace
- */
 
 namespace Omega\SerializableClosure\Serializers;
 
-/*
- * @use
- */
-use function call_user_func_array;
-use function extract;
-use function func_get_args;
-use function is_array;
-use function is_object;
-use function spl_object_hash;
 use Closure;
 use DateTimeInterface;
+use ReflectionException;
+use ReflectionObject;
+use stdClass;
+use UnitEnum;
 use Omega\SerializableClosure\SerializableClosure;
 use Omega\SerializableClosure\Support\ClosureScope;
 use Omega\SerializableClosure\Support\ClosureStream;
 use Omega\SerializableClosure\Support\ReflectionClosure;
 use Omega\SerializableClosure\Support\SelfReference;
 use Omega\SerializableClosure\UnsignedSerializableClosure;
-use ReflectionException;
-use ReflectionObject;
-use stdClass;
-use UnitEnum;
+
+use function call_user_func_array;
+use function extract;
+use function func_get_args;
+use function is_array;
+use function is_object;
+use function spl_object_hash;
 
 /**
  * Native class for serializing closures without signature verification.
@@ -52,13 +44,10 @@ use UnitEnum;
  * @category    Omega
  * @package     SerializableClosure
  * @subpackage  Serializers
- *
- * @see        https://omegamvc.github.io
- *
+ * @link        https://omegamvc.github.io
  * @author      Adriano Giovannini <agisoftt@gmail.com>
- * @copyright   Copyright (c) 2024 Adriano Giovannini. (https://omegamvc.github.io)
+ * @copyright   Copyright (c) 2024 Adriano Giovannini.
  * @license     https://www.gnu.org/licenses/gpl-3.0-standalone.html     GPL V3.0+
- *
  * @version     1.0.0
  */
 class Native implements SerializableInterface
@@ -123,7 +112,6 @@ class Native implements SerializableInterface
      * Creates a new serializable closure instance.
      *
      * @param Closure $closure Holds the closure object.
-     *
      * @return void
      */
     public function __construct(Closure $closure)
@@ -133,8 +121,6 @@ class Native implements SerializableInterface
 
     /**
      * {@inheritdoc}
-     *
-     * @return mixed Return the result of the closure invocation.
      */
     public function __invoke(): mixed
     {
@@ -143,8 +129,6 @@ class Native implements SerializableInterface
 
     /**
      * {@inheritdoc}
-     *
-     * @return Closure Return the Closure instance.
      */
     public function getClosure(): Closure
     {
@@ -155,7 +139,6 @@ class Native implements SerializableInterface
      * Get the serializable representation of the closure.
      *
      * @return array Return an array of serializable representation of the closure.
-     *
      * @throws ReflectionException
      */
     public function __serialize(): array
@@ -213,7 +196,6 @@ class Native implements SerializableInterface
      * Restore the closure after serialization.
      *
      * @param array $data
-     *
      * @return void
      */
     public function __unserialize(array $data): void
@@ -261,9 +243,7 @@ class Native implements SerializableInterface
      *
      * @param mixed        $data    Holds the data containing closures to be wrapped.
      * @param ClosureScope $storage Holds the closure storage instance.
-     *
      * @return void
-     *
      * @throws ReflectionException
      */
     public static function wrapClosures(mixed &$data, ClosureScope $storage): void
@@ -349,7 +329,6 @@ class Native implements SerializableInterface
      * Gets the closure's reflector.
      *
      * @return ReflectionClosure The reflection instance for the closure.
-     *
      * @throws ReflectionException
      */
     public function getReflector(): ReflectionClosure
@@ -366,7 +345,6 @@ class Native implements SerializableInterface
      * Internal method used to map closure pointers.
      *
      * @param mixed $data Holds the data to map pointers.
-     *
      * @return void
      */
     protected function mapPointers(mixed &$data): void
@@ -464,9 +442,7 @@ class Native implements SerializableInterface
      * Internal method used to map closures by reference within the data.
      *
      * @param mixed $data Holds the data to map by reference.
-     *
      * @return void
-     *
      * @throws ReflectionException
      */
     protected function mapByReference(mixed &$data): void

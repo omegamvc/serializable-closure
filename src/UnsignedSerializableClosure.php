@@ -2,33 +2,25 @@
 
 /**
  * Part of Omega - Serializable Closure Package.
+ * php version 8.2
  *
- * @see       https://omegamvc.github.io
- *
- * @author     Adriano Giovannini <agisoftt@gmail.com>
- * @copyright  Copyright (c) 2024 Adriano Giovannini. (https://omegamvc.github.io)
- * @license    https://www.gnu.org/licenses/gpl-3.0-standalone.html     GPL V3.0+
+ * @link        https://omegamvc.github.io
+ * @author      Adriano Giovannini <agisoftt@gmail.com>
+ * @copyright   Copyright (c) 2024 Adriano Giovannini.
+ * @license     https://www.gnu.org/licenses/gpl-3.0-standalone.html     GPL V3.0+
+ * @version     1.0.0
  */
 
-/*
- * @declare
- */
 declare(strict_types=1);
-
-/**
- * @namespace
- */
 
 namespace Omega\SerializableClosure;
 
-/*
- * @use
- */
-use function call_user_func_array;
-use function func_get_args;
 use Closure;
 use Omega\SerializableClosure\Serializers\SerializableInterface;
 use Omega\SerializableClosure\Serializers\Native;
+
+use function call_user_func_array;
+use function func_get_args;
 
 /**
  * Unsigned serializable closure class.
@@ -39,13 +31,10 @@ use Omega\SerializableClosure\Serializers\Native;
  *
  * @category    Omega
  * @package     SerializableClosure
- *
- * @see        https://omegamvc.github.io
- *
+ * @link        https://omegamvc.github.io
  * @author      Adriano Giovannini <agisoftt@gmail.com>
- * @copyright   Copyright (c) 2024 Adriano Giovannini. (https://omegamvc.github.io)
+ * @copyright   Copyright (c) 2024 Adriano Giovannini.
  * @license     https://www.gnu.org/licenses/gpl-3.0-standalone.html     GPL V3.0+
- *
  * @version     1.0.0
  */
 class UnsignedSerializableClosure
@@ -61,7 +50,6 @@ class UnsignedSerializableClosure
      * Creates a new serializable closure instance.
      *
      * @param Closure $closure Holds the current Closure object.
-     *
      * @return void
      */
     public function __construct(Closure $closure)
@@ -105,7 +93,6 @@ class UnsignedSerializableClosure
      * Restore the closure after serialization.
      *
      * @param array $data Holds an array of the closure data for restore.
-     *
      * @return void
      */
     public function __unserialize(array $data): void

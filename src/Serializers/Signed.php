@@ -2,36 +2,28 @@
 
 /**
  * Part of Omega - Serializable Closure Package.
+ * php version 8.2
  *
- * @see       https://omegamvc.github.io
- *
- * @author     Adriano Giovannini <agisoftt@gmail.com>
- * @copyright  Copyright (c) 2024 Adriano Giovannini. (https://omegamvc.github.io)
- * @license    https://www.gnu.org/licenses/gpl-3.0-standalone.html     GPL V3.0+
+ * @link        https://omegamvc.github.io
+ * @author      Adriano Giovannini <agisoftt@gmail.com>
+ * @copyright   Copyright (c) 2024 Adriano Giovannini.
+ * @license     https://www.gnu.org/licenses/gpl-3.0-standalone.html     GPL V3.0+
+ * @version     1.0.0
  */
 
-/*
- * @declare
- */
 declare(strict_types=1);
-
-/**
- * @namespace
- */
 
 namespace Omega\SerializableClosure\Serializers;
 
-/*
- * @use
- */
-use function call_user_func_array;
-use function func_get_args;
-use function serialize;
-use function unserialize;
 use Closure;
 use Omega\SerializableClosure\Signers\SignerInterface;
 use Omega\SerializableClosure\Exception\InvalidSignatureException;
 use Omega\SerializableClosure\Exception\MissingSecretKeyException;
+
+use function call_user_func_array;
+use function func_get_args;
+use function serialize;
+use function unserialize;
 
 /**
  * Signed class for serializable closures with signature verification.
@@ -42,13 +34,10 @@ use Omega\SerializableClosure\Exception\MissingSecretKeyException;
  * @category    Omega
  * @package     SerializableClosure
  * @subpackage  Serializers
- *
- * @see        https://omegamvc.github.io
- *
+ * @link        https://omegamvc.github.io
  * @author      Adriano Giovannini <agisoftt@gmail.com>
- * @copyright   Copyright (c) 2024 Adriano Giovannini. (https://omegamvc.github.io)
+ * @copyright   Copyright (c) 2024 Adriano Giovannini.
  * @license     https://www.gnu.org/licenses/gpl-3.0-standalone.html     GPL V3.0+
- *
  * @version     1.0.0
  */
 class Signed implements SerializableInterface
@@ -71,7 +60,6 @@ class Signed implements SerializableInterface
      * Creates a new serializable closure instance.
      *
      * @param Closure $closure Holds the closure to be serialized/unserialize.
-     *
      * @return void
      */
     public function __construct(Closure $closure)
@@ -81,8 +69,6 @@ class Signed implements SerializableInterface
 
     /**
      * {@inheritdoc}
-     *
-     * @return mixed Return the result of the closure invocation.
      */
     public function __invoke(): mixed
     {
@@ -91,8 +77,6 @@ class Signed implements SerializableInterface
 
     /**
      * {@inheritdoc}
-     *
-     * @return Closure Return the Closure instance.
      */
     public function getClosure(): Closure
     {
@@ -103,7 +87,6 @@ class Signed implements SerializableInterface
      * Get the serializable representation of the closure.
      *
      * @return array Return the serialized representation of the closure.
-     *
      * @throws MissingSecretKeyException If no signer is specified.
      */
     public function __serialize(): array
@@ -121,9 +104,7 @@ class Signed implements SerializableInterface
      * Restore the closure after serialization.
      *
      * @param array $signature Holds the signature to verify and unserialize.
-     *
      * @return void
-     *
      * @throws InvalidSignatureException If the signature is invalid.
      */
     public function __unserialize(array $signature): void

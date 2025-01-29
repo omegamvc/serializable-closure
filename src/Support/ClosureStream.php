@@ -2,32 +2,24 @@
 
 /**
  * Part of Omega - Serializable Closure Package.
+ * php version 8.2
  *
- * @see       https://omegamvc.github.io
- *
- * @author     Adriano Giovannini <agisoftt@gmail.com>
- * @copyright  Copyright (c) 2024 Adriano Giovannini. (https://omegamvc.github.io)
- * @license    https://www.gnu.org/licenses/gpl-3.0-standalone.html     GPL V3.0+
+ * @link        https://omegamvc.github.io
+ * @author      Adriano Giovannini <agisoftt@gmail.com>
+ * @copyright   Copyright (c) 2024 Adriano Giovannini.
+ * @license     https://www.gnu.org/licenses/gpl-3.0-standalone.html     GPL V3.0+
+ * @version     1.0.0
  */
 
-/*
- * @declare
- */
 declare(strict_types=1);
-
-/**
- * @namespace
- */
 
 namespace Omega\SerializableClosure\Support;
 
-/*
- * @use
- */
+use AllowDynamicProperties;
+
 use function substr;
 use function stat;
 use function strlen;
-use AllowDynamicProperties;
 
 #[AllowDynamicProperties]
 /**
@@ -39,13 +31,10 @@ use AllowDynamicProperties;
  * @category    Omega
  * @package     SerializableClosure
  * @subpackage  Support
- *
- * @see        https://omegamvc.github.io
- *
+ * @link        https://omegamvc.github.io
  * @author      Adriano Giovannini <agisoftt@gmail.com>
- * @copyright   Copyright (c) 2024 Adriano Giovannini. (https://omegamvc.github.io)
+ * @copyright   Copyright (c) 2024 Adriano Giovannini.
  * @license     https://www.gnu.org/licenses/gpl-3.0-standalone.html     GPL V3.0+
- *
  * @version     1.0.0
  */
 class ClosureStream
@@ -55,7 +44,7 @@ class ClosureStream
      *
      * @var string STREAM_PROTO Holds the stream protocol.
      */
-    public const string STREAM_PROTO = 'omega-serializable-closure';
+    public const STREAM_PROTO = 'omega-serializable-closure';
 
     /**
      * Checks if this stream is registered.
@@ -92,7 +81,6 @@ class ClosureStream
      * @param string      $mode       Holds the mode used to open the file or URL.
      * @param string|int  $options    Holds additional flags set by the streams API.
      * @param string|null $openedPath If passed, should be set to the full path of the file/resource
-     *                                that was actually opened.
      * @return bool Return true if open stream, false if not.
      */
     public function stream_open(string $path, string $mode, string|int $options, ?string &$openedPath): bool
@@ -107,7 +95,6 @@ class ClosureStream
      * Reads from the stream.
      *
      * @param int $count Holds the number of bytes to read from the stream.
-     *
      * @return string Returns the read string.
      */
     public function stream_read(int $count): string
@@ -135,7 +122,6 @@ class ClosureStream
      * @param int $option Holds the option to set.
      * @param int $arg1   Holds the first argument.
      * @param int $arg2   Holds the second argument.
-     *
      * @return bool Returns true on success or false on failure.
      */
     public function stream_set_option(int $option, int $arg1, int $arg2): bool
@@ -161,7 +147,6 @@ class ClosureStream
      *
      * @param string $path  Holds the path to the file or URL.
      * @param int    $flags Holds additional flags set by the streams API.
-     *
      * @return array|bool Returns an array with information about the stream, or false on failure.
      */
     public function url_stat(string $path, int $flags): array|bool
@@ -177,7 +162,6 @@ class ClosureStream
      *
      * @param int $offset Holds the stream offset.
      * @param int $whence Holds the reference position.
-     *
      * @return bool Returns true on success or false on failure.
      */
     public function stream_seek(int $offset, int $whence = SEEK_SET): bool
