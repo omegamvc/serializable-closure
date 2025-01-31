@@ -1,4 +1,12 @@
-# Serializable Closure Package
+<p align="center">
+    <a href="https://omegamvc.github.io" target="_blank">
+        <img src="https://github.com/omegamvc/omega-assets/blob/main/images/logo-omega.png" alt="Omega Logo">
+    </a>
+</p>
+
+<h1 align="center">
+    Serializable Closure Package
+</h1>
 
 The Serializable Closure package provides a convenient and secure way to serialize closures in PHP. It allows you to serialize and unserialize closures, preserving their state and functionality even across different PHP processes. This can be particularly useful in scenarios where closures need to be stored and retrieved, such as in caching mechanisms or queue systems.
 
