@@ -30,7 +30,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Omega\\SerializableClosure\\": "src/SerializableClosure/"
+      "Omega\\SerializableClosure\\": "src/Omega/SerializableClosure/"
     }
   },
   "scripts": {
