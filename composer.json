@@ -34,7 +34,7 @@
     }
   },
   "scripts": {
-    "phpcs": "XDEBUG_MODE=off php vendor/bin/phpcs vendor/omegamvc",
+    "phpcs": "XDEBUG_MODE=off php vendor/bin/phpcs vendor/omegamvc"
   },
   "minimum-stability": "stable"
 }
